@@ -1,0 +1,91 @@
+﻿@model Cinema.ViewModel.movieGallaryViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="form-horizontal">
+
+
+    
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="col-md-10">
+                <select class="form-control" name="order">
+                    <option>price increase</option>
+                    <option>price decreace</option>
+                    <option>most popular</option>
+                    <option>catgory</option>
+
+                </select>
+                <input type="submit" name="order" value="order" />
+            </div>
+
+        }
+
+</div>
+        
+
+
+
+
+<div>
+    <h1>HOME</h1>
+    <hr />
+    <table class="table" style="width:100%;">
+        <tr>
+            <th>name</th>
+            <th>image</th>
+            <th>price</th>
+            <th>category</th>
+            <th>hall</th>
+            <th>rating</th>
+            <th>starttime</th>
+
+
+        </tr>
+        @foreach (var m in Model.movies)
+        {
+            <form action="movieInfo" method="post">
+                <tr>
+                    <td>@m.name</td>
+                    <td>
+                        <img src="@Url.Content( @m.image)" width="150" height="150" style="display:inline">
+                    </td>
+                    <td>@m.price </td>
+                    <td>@m.category </td>
+                    <td> @m.hall </td>
+                    <td> @m.rating </td>
+                    <td> @m.starttime </td>
+                    
+                    <input type="hidden" name="name" value="@m.name" />
+                    <input type="hidden" name="hall" value="@m.hall" />
+                    <input type="hidden" name="starttime" value="@m.starttime" />
+                    <input type="hidden" name="discription" value="@m.discription" />
+                    <input type="hidden" name="category" value="@m.category" />
+                    <input type="hidden" name="image" value="@m.image" />
+                    <input type="hidden" name="agelimit" value="@m.agelimit" />
+                    <input type="hidden" name="rating" value="@m.rating" />
+                    <input type="hidden" name="price" value="@m.price" />
+                    <input type="hidden" name="sale" value="@m.sale" />
+                    <td> <input type="submit" name="showMovie" value="show movie!" /></td>
+                </tr>
+                </form>
+                }
+
+        </table>
+</div>
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+
+        document.onload = function () {}
+        alert("@ViewBag.Message");
+        @{ 
+            ViewBag.Message = null;
+        }
+        }
+
+    </script>
+            }

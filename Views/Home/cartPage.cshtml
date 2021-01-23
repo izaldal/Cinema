@@ -1,0 +1,74 @@
+﻿@model Cinema.ViewModel.cartViewModel
+
+@{
+    ViewBag.Title = "cartPage";
+}
+
+<h2>@ViewBag.userName</h2>
+@if (Model.CartsView.Count > 0)
+{
+    <h2>cart</h2>
+    <div class="row">
+        @foreach (var m in Model.CartsView)
+        {
+
+            <div class="movie">
+                <form action="payPage" method="post">
+                    <img src="@Url.Content(@m.image)" width="250" height="250">
+                    <br />
+                    <label>@m.name</label>
+                    <br />
+                    <label>@m.starttime</label>
+                    <br />
+                    <label>@m.hall</label>
+                    <br />
+                    <label>@m.seat</label>
+                    <br />
+                    <input type="hidden" name="name" value="@m.name" />
+                    <input type="hidden" name="hall" value="@m.hall" />
+                    <input type="hidden" name="starttime" value="@m.starttime" />
+                    <input type="hidden" name="discription" value="@m.discription" />
+                    <input type="hidden" name="category" value="@m.category" />
+                    <input type="hidden" name="image" value="@m.image" />
+                    <input type="hidden" name="agelimit" value="@m.agelimit" />
+                    <input type="hidden" name="rating" value="@m.rating" />
+                    <input type="hidden" name="price" value="@m.price" />
+                    <input type="hidden" name="sale" value="@m.sale" />
+                    <input type="hidden" name="seat" value="@m.seat" />
+                    <input type="submit" name="showMovie" value="buy" />
+                </form>
+            </div>
+
+        }
+    </div>
+}
+@if (ViewBag.tickets!=null)
+{
+    <h2>My tickets</h2>
+    <div class="row">
+        @foreach (var m in ViewBag.tickets)
+        {
+
+        <div class="movie">
+
+            <img src="@Url.Content(@m.image)" width="250" height="250">
+            <br />
+            <label>@m.name</label>
+            <br />
+            <label>@m.starttime</label>
+            <br />
+            <label>@m.hall</label>
+            <br />
+            <label>@m.seat</label>
+            <br />
+
+            
+            @if (m.endtime <= DateTime.Now)
+            {
+                <a href="feedbackPage/@m.name">add feedback</a>
+            }
+        </div>
+
+        }
+    </div>
+}

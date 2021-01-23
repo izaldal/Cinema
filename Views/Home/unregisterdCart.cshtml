@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "unregisterd user ";
+}
+
+@using (Html.BeginForm("GetunregisterdCart", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>enter your name</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+           
+            <div class="col-md-10">
+                <input type="text" name="name" class="form-control" />
+                <b>@ViewBag.erroressage</b>
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+

@@ -1,0 +1,51 @@
+﻿
+
+@{
+    ViewBag.Title = "login";
+}
+
+
+    <div class="form-horizontal">
+        <form action="logIn" method="post">
+            <div class="form-group">
+                <label class="control-label col-md-2">userame:</label>
+                <div class="col-md-10">
+                    <input type="text" name="userName" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">password:</label>
+                <div class="col-md-10">
+                    <input type="password" name="password" />
+
+                    @ViewBag.erroressage
+
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" name="login" value="login" />
+                    <input type="hidden" name="login" />
+                </div>
+            </div>
+
+        </form>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="registerPage"> user register</a>
+                
+                @if (ViewBag.admin == true)
+                {
+                        <span>|</span>
+                        <a href="adminregisterPage"> admin register</a>
+                    
+                }
+            </div>
+            
+        </div>
+    </div>
+
+
+

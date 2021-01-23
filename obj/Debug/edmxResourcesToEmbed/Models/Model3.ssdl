@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tempdbModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tempdb.dbo.ticketView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ticketView">
+    <Key>
+      <PropertyRef Name="name" />
+      <PropertyRef Name="discription" />
+      <PropertyRef Name="category" />
+      <PropertyRef Name="agelimit" />
+      <PropertyRef Name="starttime" />
+      <PropertyRef Name="hall" />
+      <PropertyRef Name="price" />
+      <PropertyRef Name="seat" />
+      <PropertyRef Name="endtime" />
+    </Key>
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="image" Type="varchar" MaxLength="255" />
+    <Property Name="discription" Type="varchar(max)" Nullable="false" />
+    <Property Name="category" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="rating" Type="numeric" Precision="1" Scale="1" />
+    <Property Name="agelimit" Type="int" Nullable="false" />
+    <Property Name="starttime" Type="datetime" Nullable="false" />
+    <Property Name="hall" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="price" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="sale" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="seat" Type="int" Nullable="false" />
+    <Property Name="endtime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="tempdbModel2StoreContainer">
+    <EntitySet Name="ticketView" EntityType="Self.ticketView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ticketView].[username] AS [username], 
+    [ticketView].[name] AS [name], 
+    [ticketView].[image] AS [image], 
+    [ticketView].[discription] AS [discription], 
+    [ticketView].[category] AS [category], 
+    [ticketView].[rating] AS [rating], 
+    [ticketView].[agelimit] AS [agelimit], 
+    [ticketView].[starttime] AS [starttime], 
+    [ticketView].[hall] AS [hall], 
+    [ticketView].[price] AS [price], 
+    [ticketView].[sale] AS [sale], 
+    [ticketView].[seat] AS [seat], 
+    [ticketView].[endtime] AS [endtime]
+    FROM [dbo].[ticketView] AS [ticketView]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

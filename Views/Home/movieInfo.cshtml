@@ -1,0 +1,156 @@
+﻿@model Cinema.ViewModel.tickitViewModel
+@{
+    ViewBag.Title = "movieInfo";
+}
+
+<h2>@ViewBag.ticketView.name</h2>
+
+@using (Html.BeginForm("addToCart", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+
+            </dt>
+
+            <dd>
+                <img src="@Url.Content(ViewBag.ticketView.image)" width="250" height="250">
+            </dd>
+
+
+            <dt>
+                <label>discription:</label>
+
+            </dt>
+
+            <dd>
+                <label>@ViewBag.ticketView.discription </label>
+
+            </dd>
+
+            <dt>
+                <label>category:</label>
+
+            </dt>
+
+            <dd>
+                <label>@ViewBag.ticketView.category </label>
+
+            </dd>
+
+            <dt>
+                <label>time:</label>
+
+            </dt>
+
+            <dd>
+                <label>@ViewBag.ticketView.starttime </label>
+
+            </dd>
+
+            <dt>
+                <label>agelimit:</label>
+
+            </dt>
+
+            <dd>
+                <label>@ViewBag.ticketView.agelimit </label>
+
+            </dd>
+
+            <dt>
+                <label>rating:</label>
+
+            </dt>
+
+            <dd>
+                <label>@ViewBag.ticketView.rating </label>
+
+            </dd>
+
+            <dt>
+                <label>price:</label>
+
+            </dt>
+            @if (@ViewBag.ticketView.sale == null)
+            {
+                <dd>
+                    <label>@ViewBag.ticketView.price </label>
+
+                </dd>
+            }
+            else
+            {
+        <dd>
+            <label><del>@ViewBag.ticketView.price </del></label>
+            |
+            <label>@ViewBag.price</label>
+
+        </dd>
+            }
+
+            <dt>
+                <label>unoccupied seats:</label>
+
+            </dt>
+
+            <dd>
+                <div class="col-md-10">
+                    <select class="form-control" name="seat">
+                        @foreach (var m in Model.tikits)
+                        {
+                            if (m.username == null)
+                            {
+                                <option>@m.seat</option>
+                            }
+                        }
+                    </select>
+
+
+                </div>
+            </dd>
+        </dl>
+    </div>
+    
+    <input type="hidden" value="@ViewBag.ticketView.name" name="movie" />
+    <input type="hidden" value="@ViewBag.ticketView.starttime" name="time" />
+    <input type="hidden" value="@ViewBag.ticketView.hall" name="hall" />
+
+
+    <input type="submit" name="addToCart" value="add To Cart" />
+}
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<div>
+    <h1>feedbacks</h1>
+    <hr />
+    <table class="table" style="width:100%;">
+        <tr>
+            <th>username</th>
+            <th>rating</th>
+            <th>comment</th>
+            
+
+
+        </tr>
+        @foreach (var m in ViewBag.feedbacks)
+        {
+            <form action="movieInfo" method="post">
+                <tr>
+                    <td>@m.userame</td>
+                    <td>@m.rating </td>
+                    <td>@m.feedback1 </td>
+                    
+                    
+                </tr>
+            </form>
+        }
+
+    </table>
+</div>
+
+

@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="tempdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="userName" />
+          </Key>
+          <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="lastName" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="yob" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cart">
+          <Key>
+            <PropertyRef Name="username" />
+            <PropertyRef Name="movie" />
+            <PropertyRef Name="hall" />
+            <PropertyRef Name="time" />
+            <PropertyRef Name="seat" />
+          </Key>
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="movie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="hall" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="time" Type="datetime" Nullable="false" />
+          <Property Name="seat" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="feedback">
+          <Key>
+            <PropertyRef Name="userame" />
+            <PropertyRef Name="movie" />
+            <PropertyRef Name="rating" />
+          </Key>
+          <Property Name="userame" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="movie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="rating" Type="int" Nullable="false" />
+          <Property Name="feedback" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="hall">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="seatsNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="movie">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="discription" Type="varchar(max)" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="agelimit" Type="int" Nullable="false" />
+          <Property Name="rating" Type="numeric" Precision="2" Scale="1" />
+          <Property Name="image" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="movie" />
+          </Key>
+          <Property Name="movie" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tikit">
+          <Key>
+            <PropertyRef Name="name" />
+            <PropertyRef Name="hall" />
+            <PropertyRef Name="starttime" />
+            <PropertyRef Name="endtime" />
+            <PropertyRef Name="seat" />
+          </Key>
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="hall" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="starttime" Type="datetime" Nullable="false" />
+          <Property Name="endtime" Type="datetime" Nullable="false" />
+          <Property Name="seat" Type="int" Nullable="false" />
+          <Property Name="price" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="sale" Type="numeric" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userName" />
+          </Key>
+          <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="lastName" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="yob" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'tempdb.dbo.cartView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="cartView">
+          <Key>
+            <PropertyRef Name="userName" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="discription" />
+            <PropertyRef Name="category" />
+            <PropertyRef Name="agelimit" />
+            <PropertyRef Name="starttime" />
+            <PropertyRef Name="hall" />
+            <PropertyRef Name="price" />
+            <PropertyRef Name="seat" />
+          </Key>
+          <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="255" />
+          <Property Name="discription" Type="varchar(max)" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="rating" Type="numeric" Precision="1" Scale="1" />
+          <Property Name="agelimit" Type="int" Nullable="false" />
+          <Property Name="starttime" Type="datetime" Nullable="false" />
+          <Property Name="hall" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="price" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="sale" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="seat" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'tempdb.dbo.moviegallary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="moviegallary">
+          <Key>
+            <PropertyRef Name="name" />
+            <PropertyRef Name="discription" />
+            <PropertyRef Name="category" />
+            <PropertyRef Name="agelimit" />
+            <PropertyRef Name="starttime" />
+            <PropertyRef Name="hall" />
+            <PropertyRef Name="price" />
+          </Key>
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="255" />
+          <Property Name="discription" Type="varchar(max)" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="rating" Type="numeric" Precision="1" Scale="1" />
+          <Property Name="agelimit" Type="int" Nullable="false" />
+          <Property Name="starttime" Type="datetime" Nullable="false" />
+          <Property Name="hall" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="price" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="sale" Type="numeric" Precision="5" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'tempdb.dbo.ticketView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ticketView">
+          <Key>
+            <PropertyRef Name="name" />
+            <PropertyRef Name="discription" />
+            <PropertyRef Name="category" />
+            <PropertyRef Name="agelimit" />
+            <PropertyRef Name="starttime" />
+            <PropertyRef Name="hall" />
+            <PropertyRef Name="price" />
+            <PropertyRef Name="seat" />
+            <PropertyRef Name="endtime" />
+          </Key>
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="255" />
+          <Property Name="discription" Type="varchar(max)" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="rating" Type="numeric" Precision="1" Scale="1" />
+          <Property Name="agelimit" Type="int" Nullable="false" />
+          <Property Name="starttime" Type="datetime" Nullable="false" />
+          <Property Name="hall" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="price" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="sale" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="seat" Type="int" Nullable="false" />
+          <Property Name="endtime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="tempdbModelStoreContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cart" EntityType="Self.cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="feedback" EntityType="Self.feedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hall" EntityType="Self.hall" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="movie" EntityType="Self.movie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tikit" EntityType="Self.tikit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cartView" EntityType="Self.cartView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [cartView].[userName] AS [userName], 
+    [cartView].[name] AS [name], 
+    [cartView].[image] AS [image], 
+    [cartView].[discription] AS [discription], 
+    [cartView].[category] AS [category], 
+    [cartView].[rating] AS [rating], 
+    [cartView].[agelimit] AS [agelimit], 
+    [cartView].[starttime] AS [starttime], 
+    [cartView].[hall] AS [hall], 
+    [cartView].[price] AS [price], 
+    [cartView].[sale] AS [sale], 
+    [cartView].[seat] AS [seat]
+    FROM [dbo].[cartView] AS [cartView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="moviegallary" EntityType="Self.moviegallary" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [moviegallary].[name] AS [name], 
+    [moviegallary].[image] AS [image], 
+    [moviegallary].[discription] AS [discription], 
+    [moviegallary].[category] AS [category], 
+    [moviegallary].[rating] AS [rating], 
+    [moviegallary].[agelimit] AS [agelimit], 
+    [moviegallary].[starttime] AS [starttime], 
+    [moviegallary].[hall] AS [hall], 
+    [moviegallary].[price] AS [price], 
+    [moviegallary].[sale] AS [sale]
+    FROM [dbo].[moviegallary] AS [moviegallary]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ticketView" EntityType="Self.ticketView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ticketView].[username] AS [username], 
+    [ticketView].[name] AS [name], 
+    [ticketView].[image] AS [image], 
+    [ticketView].[discription] AS [discription], 
+    [ticketView].[category] AS [category], 
+    [ticketView].[rating] AS [rating], 
+    [ticketView].[agelimit] AS [agelimit], 
+    [ticketView].[starttime] AS [starttime], 
+    [ticketView].[hall] AS [hall], 
+    [ticketView].[price] AS [price], 
+    [ticketView].[sale] AS [sale], 
+    [ticketView].[seat] AS [seat], 
+    [ticketView].[endtime] AS [endtime]
+    FROM [dbo].[ticketView] AS [ticketView]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="tempdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="userName" />
+          </Key>
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="yob" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="cart">
+          <Key>
+            <PropertyRef Name="username" />
+            <PropertyRef Name="movie" />
+            <PropertyRef Name="hall" />
+            <PropertyRef Name="time" />
+            <PropertyRef Name="seat" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="movie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="seat" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="feedback">
+          <Key>
+            <PropertyRef Name="userame" />
+            <PropertyRef Name="movie" />
+            <PropertyRef Name="rating" />
+          </Key>
+          <Property Name="userame" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="movie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rating" Type="Int32" Nullable="false" />
+          <Property Name="feedback1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="hall">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="seatsNumber" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="movie">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="agelimit" Type="Int32" Nullable="false" />
+          <Property Name="rating" Type="Decimal" Precision="2" Scale="1" />
+          <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="movie" />
+          </Key>
+          <Property Name="movie" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tikit">
+          <Key>
+            <PropertyRef Name="name" />
+            <PropertyRef Name="hall" />
+            <PropertyRef Name="starttime" />
+            <PropertyRef Name="endtime" />
+            <PropertyRef Name="seat" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="starttime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="endtime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="seat" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="sale" Type="Decimal" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userName" />
+          </Key>
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="yob" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="cartView">
+          <Key>
+            <PropertyRef Name="userName" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="discription" />
+            <PropertyRef Name="category" />
+            <PropertyRef Name="agelimit" />
+            <PropertyRef Name="starttime" />
+            <PropertyRef Name="hall" />
+            <PropertyRef Name="price" />
+            <PropertyRef Name="seat" />
+          </Key>
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rating" Type="Decimal" Precision="1" Scale="1" />
+          <Property Name="agelimit" Type="Int32" Nullable="false" />
+          <Property Name="starttime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="hall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="sale" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="seat" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="moviegallary">
+          <Key>
+            <PropertyRef Name="name" />
+            <PropertyRef Name="discription" />
+            <PropertyRef Name="category" />
+            <PropertyRef Name="agelimit" />
+            <PropertyRef Name="starttime" />
+            <PropertyRef Name="hall" />
+            <PropertyRef Name="price" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rating" Type="Decimal" Precision="1" Scale="1" />
+          <Property Name="agelimit" Type="Int32" Nullable="false" />
+          <Property Name="starttime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="hall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="sale" Type="Decimal" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="ticketView">
+          <Key>
+            <PropertyRef Name="name" />
+            <PropertyRef Name="discription" />
+            <PropertyRef Name="category" />
+            <PropertyRef Name="agelimit" />
+            <PropertyRef Name="starttime" />
+            <PropertyRef Name="hall" />
+            <PropertyRef Name="price" />
+            <PropertyRef Name="seat" />
+            <PropertyRef Name="endtime" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rating" Type="Decimal" Precision="1" Scale="1" />
+          <Property Name="agelimit" Type="Int32" Nullable="false" />
+          <Property Name="starttime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="hall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="sale" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="seat" Type="Int32" Nullable="false" />
+          <Property Name="endtime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="cinemaDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admins" EntityType="Self.admin" />
+          <EntitySet Name="carts" EntityType="Self.cart" />
+          <EntitySet Name="feedbacks" EntityType="Self.feedback" />
+          <EntitySet Name="halls" EntityType="Self.hall" />
+          <EntitySet Name="movies" EntityType="Self.movie" />
+          <EntitySet Name="Tables" EntityType="Self.Table" />
+          <EntitySet Name="tikits" EntityType="Self.tikit" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="cartViews" EntityType="Self.cartView" />
+          <EntitySet Name="moviegallaries" EntityType="Self.moviegallary" />
+          <EntitySet Name="ticketViews" EntityType="Self.ticketView" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="tempdbModelStoreContainer" CdmEntityContainer="cinemaDB">
+          <EntitySetMapping Name="admins">
+            <EntityTypeMapping TypeName="tempdbModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="yob" ColumnName="yob" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="carts">
+            <EntityTypeMapping TypeName="tempdbModel.cart">
+              <MappingFragment StoreEntitySet="cart">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="movie" ColumnName="movie" />
+                <ScalarProperty Name="hall" ColumnName="hall" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="seat" ColumnName="seat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="feedbacks">
+            <EntityTypeMapping TypeName="tempdbModel.feedback">
+              <MappingFragment StoreEntitySet="feedback">
+                <ScalarProperty Name="userame" ColumnName="userame" />
+                <ScalarProperty Name="movie" ColumnName="movie" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="feedback1" ColumnName="feedback" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="halls">
+            <EntityTypeMapping TypeName="tempdbModel.hall">
+              <MappingFragment StoreEntitySet="hall">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="seatsNumber" ColumnName="seatsNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="movies">
+            <EntityTypeMapping TypeName="tempdbModel.movie">
+              <MappingFragment StoreEntitySet="movie">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="discription" ColumnName="discription" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="agelimit" ColumnName="agelimit" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tables">
+            <EntityTypeMapping TypeName="tempdbModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="movie" ColumnName="movie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tikits">
+            <EntityTypeMapping TypeName="tempdbModel.tikit">
+              <MappingFragment StoreEntitySet="tikit">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="hall" ColumnName="hall" />
+                <ScalarProperty Name="starttime" ColumnName="starttime" />
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+                <ScalarProperty Name="seat" ColumnName="seat" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="sale" ColumnName="sale" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="tempdbModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="yob" ColumnName="yob" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cartViews">
+            <EntityTypeMapping TypeName="tempdbModel.cartView">
+              <MappingFragment StoreEntitySet="cartView">
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="discription" ColumnName="discription" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="agelimit" ColumnName="agelimit" />
+                <ScalarProperty Name="starttime" ColumnName="starttime" />
+                <ScalarProperty Name="hall" ColumnName="hall" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="sale" ColumnName="sale" />
+                <ScalarProperty Name="seat" ColumnName="seat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="moviegallaries">
+            <EntityTypeMapping TypeName="tempdbModel.moviegallary">
+              <MappingFragment StoreEntitySet="moviegallary">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="discription" ColumnName="discription" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="agelimit" ColumnName="agelimit" />
+                <ScalarProperty Name="starttime" ColumnName="starttime" />
+                <ScalarProperty Name="hall" ColumnName="hall" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="sale" ColumnName="sale" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ticketViews">
+            <EntityTypeMapping TypeName="tempdbModel.ticketView">
+              <MappingFragment StoreEntitySet="ticketView">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="discription" ColumnName="discription" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="agelimit" ColumnName="agelimit" />
+                <ScalarProperty Name="starttime" ColumnName="starttime" />
+                <ScalarProperty Name="hall" ColumnName="hall" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="sale" ColumnName="sale" />
+                <ScalarProperty Name="seat" ColumnName="seat" />
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tempdbModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ticketView">
+    <Key>
+      <PropertyRef Name="name" />
+      <PropertyRef Name="discription" />
+      <PropertyRef Name="category" />
+      <PropertyRef Name="agelimit" />
+      <PropertyRef Name="starttime" />
+      <PropertyRef Name="hall" />
+      <PropertyRef Name="price" />
+      <PropertyRef Name="seat" />
+      <PropertyRef Name="endtime" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rating" Type="Decimal" Precision="1" Scale="1" />
+    <Property Name="agelimit" Type="Int32" Nullable="false" />
+    <Property Name="starttime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="hall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="price" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="sale" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="seat" Type="Int32" Nullable="false" />
+    <Property Name="endtime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="tempdbEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ticketViews" EntityType="Self.ticketView" />
+  </EntityContainer>
+</Schema>

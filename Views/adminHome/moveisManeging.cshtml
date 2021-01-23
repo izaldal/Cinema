@@ -1,0 +1,33 @@
+﻿@model Cinema.ViewModel.movieViewModel
+@{
+    ViewBag.Title = "moveisManeging";
+}
+
+<h2>moveisManeging</h2>
+<div>
+    @Html.ActionLink("Back to admin home page", "Index")
+    <br/>
+</div>
+<div class="movie">
+    <a href="addMovie">
+
+        <img src='@Url.Content(ViewBag.addMovie)' width="250" height="250">
+        <br />
+        <label>add new movie</label>
+
+
+    </a>
+</div>
+@foreach (var m in Model.movies)
+{
+
+    <div class="movie">
+        <a href="showMovie/@m.name">
+            <img src="@Url.Content( @m.image)" width="250" height="250">
+
+            <br />
+            <label>@m.name</label>
+        </a>
+    </div>
+
+} 

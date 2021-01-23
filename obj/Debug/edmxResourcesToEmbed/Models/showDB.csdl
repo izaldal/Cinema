@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tempdbModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tikit">
+    <Key>
+      <PropertyRef Name="name" />
+      <PropertyRef Name="hall" />
+      <PropertyRef Name="starttime" />
+      <PropertyRef Name="endtime" />
+      <PropertyRef Name="seat" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="hall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="starttime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="endtime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="seat" Type="Int32" Nullable="false" />
+    <Property Name="price" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="sale" Type="Decimal" Precision="5" Scale="2" />
+  </EntityType>
+  <EntityContainer Name="showdbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tikits" EntityType="Self.tikit" />
+  </EntityContainer>
+</Schema>

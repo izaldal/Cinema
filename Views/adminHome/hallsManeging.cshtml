@@ -1,0 +1,34 @@
+﻿@model Cinema.ViewModel.hallViewModel
+
+@{
+    ViewBag.Title = "halls";
+}
+
+<h2>halls</h2>
+
+<div>
+    <h4>hallViewModel</h4>
+    <hr />
+    <table style="width:100%">
+        <tr>
+            <th>hall name</th>
+            <th>number of seats</th>
+            <th>Edit hall</th>
+
+        </tr>
+        @foreach (var m in Model.halls)
+        {
+            <tr>
+                <td>@m.name</td>
+                <td>@m.seatsNumber</td>
+                <td> @Html.ActionLink("Edit", "editHall", new { id = m.name }) </td>
+                <td> @Html.ActionLink("Delete", "deleteHall", new { id = m.name }) </td>
+            </tr>
+        }
+       
+    </table>
+</div>
+<p>
+    @Html.ActionLink("add new hall", "addHallPage")
+    @Html.ActionLink("Back to List", "Index")
+</p>

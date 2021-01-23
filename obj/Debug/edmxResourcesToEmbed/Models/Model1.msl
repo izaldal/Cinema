@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tempdbModelStoreContainer" CdmEntityContainer="cinemaDB">
+    <EntitySetMapping Name="admins">
+      <EntityTypeMapping TypeName="tempdbModel.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="yob" ColumnName="yob" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="carts">
+      <EntityTypeMapping TypeName="tempdbModel.cart">
+        <MappingFragment StoreEntitySet="cart">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="movie" ColumnName="movie" />
+          <ScalarProperty Name="hall" ColumnName="hall" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="seat" ColumnName="seat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="feedbacks">
+      <EntityTypeMapping TypeName="tempdbModel.feedback">
+        <MappingFragment StoreEntitySet="feedback">
+          <ScalarProperty Name="userame" ColumnName="userame" />
+          <ScalarProperty Name="movie" ColumnName="movie" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="feedback1" ColumnName="feedback" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="halls">
+      <EntityTypeMapping TypeName="tempdbModel.hall">
+        <MappingFragment StoreEntitySet="hall">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="seatsNumber" ColumnName="seatsNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="movies">
+      <EntityTypeMapping TypeName="tempdbModel.movie">
+        <MappingFragment StoreEntitySet="movie">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="discription" ColumnName="discription" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="agelimit" ColumnName="agelimit" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tables">
+      <EntityTypeMapping TypeName="tempdbModel.Table">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="movie" ColumnName="movie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tikits">
+      <EntityTypeMapping TypeName="tempdbModel.tikit">
+        <MappingFragment StoreEntitySet="tikit">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="hall" ColumnName="hall" />
+          <ScalarProperty Name="starttime" ColumnName="starttime" />
+          <ScalarProperty Name="endtime" ColumnName="endtime" />
+          <ScalarProperty Name="seat" ColumnName="seat" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="sale" ColumnName="sale" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="tempdbModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="yob" ColumnName="yob" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cartViews">
+      <EntityTypeMapping TypeName="tempdbModel.cartView">
+        <MappingFragment StoreEntitySet="cartView">
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="discription" ColumnName="discription" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="agelimit" ColumnName="agelimit" />
+          <ScalarProperty Name="starttime" ColumnName="starttime" />
+          <ScalarProperty Name="hall" ColumnName="hall" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="sale" ColumnName="sale" />
+          <ScalarProperty Name="seat" ColumnName="seat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="moviegallaries">
+      <EntityTypeMapping TypeName="tempdbModel.moviegallary">
+        <MappingFragment StoreEntitySet="moviegallary">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="discription" ColumnName="discription" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="agelimit" ColumnName="agelimit" />
+          <ScalarProperty Name="starttime" ColumnName="starttime" />
+          <ScalarProperty Name="hall" ColumnName="hall" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="sale" ColumnName="sale" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ticketViews">
+      <EntityTypeMapping TypeName="tempdbModel.ticketView">
+        <MappingFragment StoreEntitySet="ticketView">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="discription" ColumnName="discription" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="agelimit" ColumnName="agelimit" />
+          <ScalarProperty Name="starttime" ColumnName="starttime" />
+          <ScalarProperty Name="hall" ColumnName="hall" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="sale" ColumnName="sale" />
+          <ScalarProperty Name="seat" ColumnName="seat" />
+          <ScalarProperty Name="endtime" ColumnName="endtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

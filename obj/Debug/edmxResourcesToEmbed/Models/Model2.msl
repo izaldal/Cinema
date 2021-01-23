@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tempdbModel1StoreContainer" CdmEntityContainer="tempdbEntities1">
+    <EntitySetMapping Name="feedbacks">
+      <EntityTypeMapping TypeName="tempdbModel1.feedback">
+        <MappingFragment StoreEntitySet="feedback">
+          <ScalarProperty Name="userame" ColumnName="userame" />
+          <ScalarProperty Name="movie" ColumnName="movie" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="feedback1" ColumnName="feedback" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tempdbModel1StoreContainer" CdmEntityContainer="showdbEntities">
+    <EntitySetMapping Name="tikits">
+      <EntityTypeMapping TypeName="tempdbModel1.tikit">
+        <MappingFragment StoreEntitySet="tikit">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="hall" ColumnName="hall" />
+          <ScalarProperty Name="starttime" ColumnName="starttime" />
+          <ScalarProperty Name="endtime" ColumnName="endtime" />
+          <ScalarProperty Name="seat" ColumnName="seat" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="sale" ColumnName="sale" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

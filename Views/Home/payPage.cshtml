@@ -1,0 +1,97 @@
+﻿@model Cinema.ViewModel.tickitViewModel
+@{
+    ViewBag.Title = ViewBag.ticketView.name;
+}
+
+<h2>@ViewBag.ticketView.name</h2>
+
+@using (Html.BeginForm("buyTickit", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+
+            </dt>
+
+            <dd>
+                <img src="@Url.Content(ViewBag.ticketView.image)" width="250" height="250">
+            </dd>
+
+            <dt>
+                <label>category:</label>
+
+            </dt>
+
+            <dd>
+                <label>@ViewBag.ticketView.category </label>
+
+            </dd>
+
+            <dt>
+                <label>rating:</label>
+
+            </dt>
+
+            <dd>
+                <label>@ViewBag.ticketView.rating </label>
+
+            </dd>
+
+
+
+            <dt>
+                <label>price:</label>
+
+            </dt>
+            @if (@ViewBag.ticketView.sale == null)
+            {
+                <dd>
+                    <label>@ViewBag.ticketView.price </label>
+
+                </dd>
+            }
+            else
+            {
+                <dd>
+                    <label>@ViewBag.ticketView.price </label>
+
+                </dd>
+            }
+
+            <dt>
+                <label>unoccupied seats:</label>
+
+            </dt>
+
+            <dd>
+                <div class="col-md-10">
+                    <select class="form-control" name="seat">
+                        <option>@ViewBag.seat</option>
+                        @foreach (var m in Model.tikits)
+                        {
+                            if (m.username == null & m.seat != ViewBag.seat)
+                            {
+                                <option>@m.seat</option>
+                            }
+                        }
+                    </select>
+
+
+                </div>
+            </dd>
+        </dl>
+    </div>
+
+    <input type="hidden" value="@ViewBag.ticketView.name" name="name" />
+    <input type="hidden" value="@ViewBag.ticketView.starttime" name="starttime" />
+    <input type="hidden" value="@ViewBag.ticketView.hall" name="hall" />
+    
+    <input type="submit" name="buy" value="buy" />
+}
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tempdbModel2StoreContainer" CdmEntityContainer="tempdbEntities3">
+    <EntitySetMapping Name="ticketViews">
+      <EntityTypeMapping TypeName="tempdbModel2.ticketView">
+        <MappingFragment StoreEntitySet="ticketView">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="discription" ColumnName="discription" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="agelimit" ColumnName="agelimit" />
+          <ScalarProperty Name="starttime" ColumnName="starttime" />
+          <ScalarProperty Name="hall" ColumnName="hall" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="sale" ColumnName="sale" />
+          <ScalarProperty Name="seat" ColumnName="seat" />
+          <ScalarProperty Name="endtime" ColumnName="endtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

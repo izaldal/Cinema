@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tempdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="userName" />
+    </Key>
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="firstName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="lastName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="yob" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="cart">
+    <Key>
+      <PropertyRef Name="username" />
+      <PropertyRef Name="movie" />
+      <PropertyRef Name="hall" />
+      <PropertyRef Name="time" />
+      <PropertyRef Name="seat" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="movie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="hall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="seat" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="feedback">
+    <Key>
+      <PropertyRef Name="userame" />
+      <PropertyRef Name="movie" />
+      <PropertyRef Name="rating" />
+    </Key>
+    <Property Name="userame" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="movie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rating" Type="Int32" Nullable="false" />
+    <Property Name="feedback1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="hall">
+    <Key>
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="seatsNumber" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="movie">
+    <Key>
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="agelimit" Type="Int32" Nullable="false" />
+    <Property Name="rating" Type="Decimal" Precision="2" Scale="1" />
+    <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="movie" />
+    </Key>
+    <Property Name="movie" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tikit">
+    <Key>
+      <PropertyRef Name="name" />
+      <PropertyRef Name="hall" />
+      <PropertyRef Name="starttime" />
+      <PropertyRef Name="endtime" />
+      <PropertyRef Name="seat" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="hall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="starttime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="endtime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="seat" Type="Int32" Nullable="false" />
+    <Property Name="price" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="sale" Type="Decimal" Precision="5" Scale="2" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="userName" />
+    </Key>
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="firstName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="lastName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="yob" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="cartView">
+    <Key>
+      <PropertyRef Name="userName" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="discription" />
+      <PropertyRef Name="category" />
+      <PropertyRef Name="agelimit" />
+      <PropertyRef Name="starttime" />
+      <PropertyRef Name="hall" />
+      <PropertyRef Name="price" />
+      <PropertyRef Name="seat" />
+    </Key>
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rating" Type="Decimal" Precision="1" Scale="1" />
+    <Property Name="agelimit" Type="Int32" Nullable="false" />
+    <Property Name="starttime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="hall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="price" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="sale" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="seat" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="moviegallary">
+    <Key>
+      <PropertyRef Name="name" />
+      <PropertyRef Name="discription" />
+      <PropertyRef Name="category" />
+      <PropertyRef Name="agelimit" />
+      <PropertyRef Name="starttime" />
+      <PropertyRef Name="hall" />
+      <PropertyRef Name="price" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rating" Type="Decimal" Precision="1" Scale="1" />
+    <Property Name="agelimit" Type="Int32" Nullable="false" />
+    <Property Name="starttime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="hall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="price" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="sale" Type="Decimal" Precision="5" Scale="2" />
+  </EntityType>
+  <EntityType Name="ticketView">
+    <Key>
+      <PropertyRef Name="name" />
+      <PropertyRef Name="discription" />
+      <PropertyRef Name="category" />
+      <PropertyRef Name="agelimit" />
+      <PropertyRef Name="starttime" />
+      <PropertyRef Name="hall" />
+      <PropertyRef Name="price" />
+      <PropertyRef Name="seat" />
+      <PropertyRef Name="endtime" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rating" Type="Decimal" Precision="1" Scale="1" />
+    <Property Name="agelimit" Type="Int32" Nullable="false" />
+    <Property Name="starttime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="hall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="price" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="sale" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="seat" Type="Int32" Nullable="false" />
+    <Property Name="endtime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="cinemaDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admins" EntityType="Self.admin" />
+    <EntitySet Name="carts" EntityType="Self.cart" />
+    <EntitySet Name="feedbacks" EntityType="Self.feedback" />
+    <EntitySet Name="halls" EntityType="Self.hall" />
+    <EntitySet Name="movies" EntityType="Self.movie" />
+    <EntitySet Name="Tables" EntityType="Self.Table" />
+    <EntitySet Name="tikits" EntityType="Self.tikit" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <EntitySet Name="cartViews" EntityType="Self.cartView" />
+    <EntitySet Name="moviegallaries" EntityType="Self.moviegallary" />
+    <EntitySet Name="ticketViews" EntityType="Self.ticketView" />
+  </EntityContainer>
+</Schema>

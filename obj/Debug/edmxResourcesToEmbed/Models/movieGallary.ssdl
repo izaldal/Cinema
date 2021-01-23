@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="movieGallary.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tempdb.dbo.moviegallary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="moviegallary">
+    <Key>
+      <PropertyRef Name="name" />
+      <PropertyRef Name="discription" />
+      <PropertyRef Name="category" />
+      <PropertyRef Name="agelimit" />
+      <PropertyRef Name="starttime" />
+      <PropertyRef Name="hall" />
+      <PropertyRef Name="price" />
+    </Key>
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="image" Type="varchar" MaxLength="255" />
+    <Property Name="discription" Type="varchar(max)" Nullable="false" />
+    <Property Name="category" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="rating" Type="numeric" Precision="1" Scale="1" />
+    <Property Name="agelimit" Type="int" Nullable="false" />
+    <Property Name="starttime" Type="datetime" Nullable="false" />
+    <Property Name="hall" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="price" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="sale" Type="numeric" Precision="5" Scale="2" />
+  </EntityType>
+  <EntityContainer Name="movieGallaryStoreContainer">
+    <EntitySet Name="moviegallary" EntityType="Self.moviegallary" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [moviegallary].[name] AS [name], 
+    [moviegallary].[image] AS [image], 
+    [moviegallary].[discription] AS [discription], 
+    [moviegallary].[category] AS [category], 
+    [moviegallary].[rating] AS [rating], 
+    [moviegallary].[agelimit] AS [agelimit], 
+    [moviegallary].[starttime] AS [starttime], 
+    [moviegallary].[hall] AS [hall], 
+    [moviegallary].[price] AS [price], 
+    [moviegallary].[sale] AS [sale]
+    FROM [dbo].[moviegallary] AS [moviegallary]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

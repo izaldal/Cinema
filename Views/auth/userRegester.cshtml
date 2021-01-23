@@ -1,0 +1,26 @@
+﻿@model Cinema.Models.user
+@{
+    ViewBag.Title = "register";
+}
+
+<body>
+    <form action="signUp" method="post">
+        <div class="auth">
+            userame:<input type="text" name="userName" />@Html.ValidationMessageFor(x => x.userName)
+            <br />
+            email:<input type="email" name="email" />@Html.ValidationMessageFor(x => x.email)
+            <br />
+            password:<input type="password" name="password" />@Html.ValidationMessageFor(x => x.password)
+            <br />
+            firstname:<input type="text" name="firstname" />@Html.ValidationMessageFor(x => x.firstName)
+            <br />
+            lastname:<input type="text" name="lastname" />@Html.ValidationMessageFor(x => x.lastName)
+            <br />
+            @ViewBag.erroressage
+            <br />
+
+            <input type="submit" name="register" value="register" />
+        </div>
+    </form>
+</body>
+

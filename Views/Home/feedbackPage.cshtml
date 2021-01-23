@@ -1,0 +1,41 @@
+﻿@model Cinema.Models.feedback
+
+@{
+    ViewBag.Title = "unregisterd user ";
+}
+<h1>@ViewBag.movie</h1>
+@using (Html.BeginForm("Feedback", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <input type="hidden" name="userame" value="@ViewBag.username" />
+    <input type="hidden" name="movie" value="@ViewBag.movie" />
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label>reting:</label>
+        <div class="col-md-10">
+            <input type="number" name="rating" max="10" class="form-control" />
+            @Html.ValidationMessageFor(x => x.rating)
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label>comment:</label>
+        <div class="col-md-10">
+            <input type="text" name="feedback1" class="form-control" />
+
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
